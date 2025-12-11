@@ -1,41 +1,79 @@
-NftCollection — ERC-721 NFT Smart Contract (Hardhat + Docker)
-Overview
+🌟 NftCollection — ERC-721 NFT Smart Contract (Hardhat + Docker)
 
-This project implements a fully ERC-721–compatible NFT smart contract with:
+A fully featured, production-ready ERC-721 NFT smart contract built using Solidity, Hardhat, OpenZeppelin, and Ethers.js v6 — complete with a comprehensive automated test suite and reproducible Docker environment.
 
-Owner-only minting
+This project demonstrates secure smart contract design, strong test coverage, access control, metadata handling, and deployment best practices.
 
-Maximum supply enforcement
+🚀 Features
+🔐 Owner-Only Minting
 
-Pause / unpause control
+Only the contract owner can mint new NFTs.
+Prevents unauthorized minting and ensures controlled token distribution.
 
-Metadata via baseURI/tokenId
+📈 Maximum Supply Enforcement
 
-Burn functionality
+Each NFT has a fixed valid token range (1 → maxSupply).
+Minting beyond max supply instantly reverts.
 
-Safe transfers, approvals, operator approvals
+⏯️ Pausable Minting
 
-Complete automated test suite
+Admin can pause/unpause minting using OpenZeppelin's Pausable for safety.
 
-Fully Dockerized test environment
+🖼️ Metadata Support
 
-The goal is to produce a clean, secure, production-ready NFT contract that follows best practices and passes a comprehensive automated test suite.
+Token URI follows the pattern:
 
-Tech Stack
+baseURI + tokenId
 
-Solidity 0.8.19
 
-Hardhat
+e.g., https://example.com/metadata/1
 
-Ethers.js v6
+🔥 Burn Functionality
 
-OpenZeppelin Contracts
+Token holders or approved operators can burn NFTs.
+totalSupply updates correctly after burns.
 
-Mocha + Chai (with hardhat-chai-matchers)
+🔄 Transfers, Approvals, Operator Approvals
 
-Docker (Node.js 18 base image)
+Full ERC-721 implementation including:
 
-Project Structure
+approve
+
+setApprovalForAll
+
+safeTransferFrom
+
+Event emission checks
+
+🧪 Complete Automated Test Suite
+
+Tests cover:
+
+Minting
+
+Approvals
+
+Operator transfers
+
+Transfers
+
+Burning
+
+Pausing
+
+TokenURI logic
+
+Failure scenarios
+
+Event checks
+
+Gas measurement
+
+🐳 Dockerized Testing Environment
+
+Run all tests inside a clean Docker container — no setup required.
+
+🗂️ Project Structure
 project-root/
 ├── contracts/
 │   └── NftCollection.sol
@@ -47,125 +85,85 @@ project-root/
 ├── package.json
 └── README.md
 
-Features
-✔ ERC-721 Standard
+🛠️ Tech Stack
 
-Implements all required ERC-721 functions:
-ownerOf, balanceOf, approve, transferFrom, safeTransferFrom, isApprovedForAll, etc.
+Solidity 0.8.19
 
-✔ Minting (Owner-only)
+Hardhat
 
-Token ID must be between 1 and maxSupply.
+Ethers.js v6
 
-✔ maxSupply Enforcement
+OpenZeppelin Contracts
 
-Minting beyond maximum supply reverts.
+Mocha + Chai
 
-✔ Pausable
+Hardhat Chai Matchers
 
-Owner can pause and unpause minting.
+Docker
 
-✔ Metadata
+Node.js 18
 
-Token URI follows:
-
-baseURI + tokenId
-
-✔ Burning
-
-Burn allowed for owner or approved operator; totalSupply updates correctly.
-
-✔ Full Test Suite
-
-Covers:
-
-Minting
-
-Transfers
-
-Approvals
-
-Pausing
-
-Burning
-
-Metadata
-
-Invalid operations
-
-Events
-
-Gas usage
-
-✔ Docker Support
-
-Run all tests in a clean environment:
-
-docker run --rm nft-contract
-
-How to Run (Locally)
-Install dependencies:
+📦 Installation & Setup
+1️⃣ Install dependencies
 npm install
 
-Compile:
+2️⃣ Compile smart contracts
 npx hardhat compile
 
-Run tests:
+3️⃣ Run the full test suite
 npx hardhat test
 
-Run With Docker (Recommended)
-Build image:
+🐳 Run Using Docker (Recommended)
+Build the image:
 docker build -t nft-contract .
 
-Run tests inside container:
+Run tests inside Docker:
 docker run --rm nft-contract
 
-Security Notes
 
-Based on OpenZeppelin audited ERC-721
+This ensures consistent, isolated test results across any machine.
 
-Validates token ID range
+🧪 Test Coverage Summary
 
-Prevents zero-address mint
+The automated test suite validates:
 
-Prevents duplicate token IDs
+✔ Core ERC-721 compliance
+✔ Minting rules (owner-only, no duplicates, token range)
+✔ Transfers & safe transfers
+✔ Approvals & operator approvals
+✔ Pausing functionality
+✔ Burning and supply tracking
+✔ Metadata correctness
+✔ Invalid operations revert
+✔ Event emission
+✔ Gas constraints for mint + transfer
 
-Atomic state changes
+All tests pass successfully.
 
-No unsafe external calls
+🔒 Security Considerations
 
-Test Coverage Summary
+This project incorporates multiple industry best practices:
 
-Tests verify:
+OpenZeppelin’s audited ERC-721 implementation
 
-✔ Initial state
+Owner-only restricted functions
 
-✔ Minting
+No minting to zero address
 
-✔ Access control
+TokenID validation
 
-✔ Pausing
+Prevents double minting
 
-✔ Approvals
+Reverts on invalid operations
 
-✔ Transfers
+Atomic state updates
 
-✔ Burning
+No external re-entrancy risks
 
-✔ Metadata
+📄 License
 
-✔ Reverts
+This project is licensed under the MIT License.
 
-✔ Events
+👤 Author
 
-✔ Gas limits
-
-All tests successfully pass.
-
-License
-
-MIT License.
-
-Author
-
-Thaheer Shaik
+Thahheer Shaik
