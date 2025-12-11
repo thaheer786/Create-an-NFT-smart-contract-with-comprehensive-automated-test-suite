@@ -1,0 +1,17 @@
+{
+  "name": "nft-collection",
+  "version": "1.0.0",
+  "description": "ERC-721 compatible NFT contract with comprehensive tests",
+  "scripts": {
+    "test": "hardhat test",
+    "clean": "rm -rf node_modules && rm -rf cache && rm -rf artifacts"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "@openzeppelin/contracts": "^4.9.3",
+    "chai": "^4.3.7",
+    "ethers": "^6.8.0",
+    "hardhat": "^2.18.2"
+  }
+}
