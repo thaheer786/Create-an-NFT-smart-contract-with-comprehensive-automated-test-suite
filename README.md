@@ -11,7 +11,7 @@ Only the contract owner can mint new NFTs.
 Prevents unauthorized minting and ensures controlled token distribution.
 
 📈 Maximum Supply Enforcement  
-
+ 
 Each NFT has a fixed valid token range (1 → maxSupply).
 Minting beyond max supply instantly reverts.
 
