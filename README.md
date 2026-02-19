@@ -1,6 +1,6 @@
 🌟 NftCollection — ERC-721 NFT Smart Contract (Hardhat + Docker)
 
-A fully featured, production-ready ERC-721 NFT smart contract built using Solidity, Hardhat, OpenZeppelin, and Ethers.js v6 — complete with a comprehensive automated test suite and reproducible Docker environment.
+A fully featured, production-ready ERC-721 NFT smart contract built using Solidity, Hardhat, OpenZeppelin, and Ethers.js v6 — complete with a comprehensive automated test suite and reproducible Docker environment. 
 
 This project demonstrates secure smart contract design, strong test coverage, access control, metadata handling, and deployment best practices.
 
